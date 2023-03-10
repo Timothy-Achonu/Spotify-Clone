@@ -20,16 +20,14 @@ const navlinksData = [
     text: "Home",
   },
   {
-    icon: (
-      <SiBuzzfeed
-         />
-    ),
-    text: "Trends",
+    icon: <AiOutlineStar  />,
+    text: "Albums",
   },
   {
-    icon: <BiNews  />,
-    text: "Feed",
+    icon: <MdFavoriteBorder  />,
+    text: "Favorite Songs",
   },
+ 
   {
     icon: <BsBoxes />,
     text: "New and Notable",
@@ -43,16 +41,16 @@ const navlinksData = [
     text: "Events",
   },
   {
-    icon: <MdFavoriteBorder  />,
-    text: "Favorite Songs",
+    icon: <BiNews  />,
+    text: "Feed",
   },
   {
     icon: <MdPeopleOutline   />,
     text: "Artists",
   },
   {
-    icon: <AiOutlineStar  />,
-    text: "Albums",
+    icon: <SiBuzzfeed  />,
+    text: "Trends",
   },
 ];
 

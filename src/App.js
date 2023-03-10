@@ -1,11 +1,12 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect } from "react";
 import "./App.css";
 import Login from "./components/login/Login";
 import MainApp from "./components/mainApp/MainApp";
 import { Routes, Route } from "react-router-dom";
 import LeftSidebar from "./components/leftSidebar/LeftSidebar";
+import { useStateProvider } from "./utilities/StateProvider";
+import { reducerCases } from "./utilities/Constants";
 
-export const AuthContext = createContext();
 
 function App() {
   /*
@@ -27,12 +28,45 @@ function App() {
   getting the styling for active NavLinks
   ***
   Note: Search Leads to a new Route. Like the whole main app is replaced by a different page.
+  Note: save token in localStorage. There should be a logout feature.
+  But there is catch, tokens expire right?if it's saved in 
+  localStorage, when the page is refreshed, a new one would not be
+  generated because you won't be sent back to the login page. 
+  So if you would save token in localStorage, you would
+  have to logout to be able to create a new token
   */
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+ /*
+useEffect(() => {
+    const hash = window.location.hash;
+    let token = window.localStorage.getItem("token");
+    console.log("hash -----",hash);
+
+    if (!token && hash) {
+      token = hash
+        .substring(1)
+        .split("&")
+        .find((elem) => elem.startsWith("access_token"))
+        .split("=")[1];
+
+      window.location.hash = "";
+      window.localStorage.setItem("token", token);
+    }
+    setToken(token);
+    // console.log(token)
+  }, []);
+ */
+  const [initialState, dispatch] = useStateProvider();
+  const { token } = initialState
+  useEffect(() => {
+    const hash = window.location.hash;
+    if(hash) {
+      const token = hash.substring(1).split('&')[0].split("=")[1];
+      dispatch({type:reducerCases.SET_TOKEN, token})
+    }
+  },[token, dispatch])
   return (
     <div className="App">
-      <AuthContext.Provider value={setIsLoggedIn}>
-        {isLoggedIn ? (
+        {token ? (
           <>
           <LeftSidebar />
           <Routes>
@@ -42,7 +76,6 @@ function App() {
         ) : (
           <Login />
         )}
-      </AuthContext.Provider>
     </div>
   );
 }

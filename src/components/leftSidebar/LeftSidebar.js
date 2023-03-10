@@ -6,6 +6,7 @@ import NavLinks from "./navLinks/NavLinks";
 import navlinksData from "./navLinks/data";
 import { FiChevronRight } from "react-icons/fi";
 import ImgSrc from "../assets/images/Ellipse.png";
+import Playlists from "./Playlists";
 
 export default function LeftSidebar() {
   console.log(navlinksData.length);
@@ -34,18 +35,19 @@ export default function LeftSidebar() {
           return <NavLinks icon={item.icon} text={item.text} key={idx} />;
         })}
       </ul>
-      <div className={styles.listsHeading}> Discover</div>
+      <div className={styles.listsHeading}> Playlists</div>
       <ul>
-        {navlinksData.slice(3, 6).map((item, idx) => {
+        {/* {navlinksData.slice(3, 6).map((item, idx) => {
           return <NavLinks icon={item.icon} text={item.text} key={idx} />;
-        })}
+        })} */}
+        <Playlists />
       </ul>
-      <div className={styles.listsHeading}> Your Collection </div>
+      {/* <div className={styles.listsHeading}> Your Collection </div>
       <ul>
         {navlinksData.slice(6).map((item, idx) => {
           return <NavLinks icon={item.icon} text={item.text} key={idx} />;
         })}
-      </ul>
+      </ul> */}
       <div className={styles.ceptariWrapper}>
         <div className={styles.nameImgWrapper}>
           <figure>

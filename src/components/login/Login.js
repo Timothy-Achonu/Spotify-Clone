@@ -1,10 +1,27 @@
 import React, { useContext } from "react";
-import { AuthContext } from "../../App";
 import { TbOlympics } from "react-icons/tb";
 import styles from "./login.module.css";
 
 export default function Login() {
-  const setIsLoggedIn = useContext(AuthContext);
+  console.log(window.location.href)
+  function handleClick() {
+    const clientId = "fe301ef56fd045d8a5e2f12ad62b81e9";
+    // const redirectUrl = "http://localhost:3000/";
+    const redirectUrl = window.location.href;
+    const apiUrl = "https://accounts.spotify.com/authorize";
+    const scope = [
+      "user-read-email",
+      "user-read-private",
+      "user-read-playback-state",
+      "user-modify-playback-state",
+      "user-read-currently-playing",
+      "user-read-playback-position",
+      "user-top-read",
+      "user-read-recently-played",
+    ];
+    window.location.href = `${apiUrl}?client_id=${clientId}&redirect_uri=${redirectUrl}&scope=${scope.join
+      (" ")}&response_type=token&show_dialog=true`;
+  };
   return (
     <div className={styles.container}>
       <h1>
@@ -14,7 +31,7 @@ export default function Login() {
         </span>
         BeeMusic
       </h1>
-      <button className={styles.connect} onClick={() => setIsLoggedIn(true)}>
+      <button className={styles.connect} onClick={handleClick}>
         connect
       </button>
     </div>

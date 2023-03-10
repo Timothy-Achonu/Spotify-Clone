@@ -5,8 +5,8 @@ import { BsArrowRight } from "react-icons/bs";
 import { CiSearch } from "react-icons/ci";
 import { FiChevronRight } from "react-icons/fi";
 import fire from "../assets/images/fire.png";
-import songsData from './song/songsData'
-import Song from "./song/Song";
+import MyPlaylist from "./myPlaylist/MyPlaylist";
+
 
 export default function Center() {
   return (
@@ -58,28 +58,7 @@ export default function Center() {
         </div>
       </div>
       {/* MY PLAYLIST */}
-      <div className={styles.myPlaylistsWrapper}>
-        <div>
-          <h2>My Playlist</h2>
-          <span>Show more</span>
-        </div>
-        <div className={styles.table}>
-          <div className={styles.rowHead}>
-            <div >#</div>
-            <div>TITLE</div>
-            <div>ARTIST</div>
-            <div>TIME</div>
-            <div>ALBUM</div>
-          </div>
-          {
-            songsData.map((song, idx) => {
-               return (
-                <Song song={song} key={idx} id={idx} />
-               )
-            })
-          }
-        </div>
-      </div>
+      <MyPlaylist />
     </main>
   );
 }
