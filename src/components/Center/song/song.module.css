@@ -1,0 +1,46 @@
+.textSnippet {
+  padding-inline: 5px;
+  font-size: 0.8rem;
+  font-weight: 400;
+  line-height: 1.2rem;
+  color: #4a4e74;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.song {
+  font-size: 0.9rem;
+  height: 50px;
+  /* background-color: yellow; */
+}
+.song.playing {
+  background-color: white;
+  color: black;
+  /* width: calc(100% + 20px); */
+  border-radius: 15px;
+  box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+}
+.song > div {
+  color: #444;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  /* padding: 0 10px; */
+  padding-right: 20px;
+}
+.songHash {
+  width: 50px;
+}
+.songTitle {
+  width: 160px;
+}
+.songArtist {
+  width: 130px;
+}
+.songTime {
+  width: 50px;
+}
+.songAlbum {
+  width: 160px;
+}
