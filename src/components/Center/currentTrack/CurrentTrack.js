@@ -8,7 +8,7 @@ import PlayerControls from "./playerControls/PlayerControls";
 import { MdFavoriteBorder } from "react-icons/md";
 import Volume from "./volume/Volume";
 
-export default function CurrentTrack() {
+export default function CurrentTrack({audioRef}) {
   const [initialState, dispatch] = useStateProvider();
   const { token, currentlyPlaying } = initialState;
 
@@ -37,7 +37,7 @@ export default function CurrentTrack() {
   };
 
   useEffect(() => {
-    getCurrentPlayingTrack();
+    // getCurrentPlayingTrack();
   }, [dispatch, token]);
 
   return (
@@ -54,8 +54,12 @@ export default function CurrentTrack() {
                 <MdFavoriteBorder />
               </figure>
             </div>
-            <PlayerControls getCurrentPlayingTrack={getCurrentPlayingTrack} isTrackPlaying={true}/>
-            <Volume isTrackPlaying={true}/>
+            <PlayerControls
+              getCurrentPlayingTrack={getCurrentPlayingTrack}
+              audioRef={audioRef}
+              isTrackPlaying={true}
+            />
+            <Volume isTrackPlaying={true} />
           </div>
           <div>duration</div>
         </div>
@@ -71,8 +75,12 @@ export default function CurrentTrack() {
                 <MdFavoriteBorder />
               </figure>
             </div>
-            <PlayerControls getCurrentPlayingTrack={getCurrentPlayingTrack} isTrackPlaying={false}/>
-            <Volume isTrackPlaying={false}/>
+            <PlayerControls
+              getCurrentPlayingTrack={getCurrentPlayingTrack}
+              audioRef={audioRef}
+              isTrackPlaying={false}
+            />
+            <Volume isTrackPlaying={false} />
           </div>
           <div> No duration</div>
         </div>

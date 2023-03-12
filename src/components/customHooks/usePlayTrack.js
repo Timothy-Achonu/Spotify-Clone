@@ -11,6 +11,7 @@ export default function usePlayTrack() {
     id,
     name,
     imageSrc,
+    audio,
     artists,
     context_uri,
     track_number
@@ -38,6 +39,7 @@ export default function usePlayTrack() {
           name,
           artists,
           imageSrc,
+          audio,
         };
         console.log(currentlyPlaying);
         dispatch({ type: reducerCases.SET_PLAYING, currentlyPlaying });

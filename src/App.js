@@ -7,7 +7,6 @@ import LeftSidebar from "./components/leftSidebar/LeftSidebar";
 import { useStateProvider } from "./utilities/StateProvider";
 import { reducerCases } from "./utilities/Constants";
 import Playlist from "./components/Center/playlist/Playlist";
-import CurrentTrack from "./components/Center/currentTrack/CurrentTrack";
 import GetNewTokens from "./components/getNewTokens/GetNewTokens";
 function App() {
   /*
@@ -80,7 +79,6 @@ useEffect(() => {
         { showApp() ? (
         <>
           <LeftSidebar />
-          <CurrentTrack />
           <Routes>
             <Route path="/" element={ <MainApp />} />
             <Route path="/playlist/:id" element={<Playlist />} />

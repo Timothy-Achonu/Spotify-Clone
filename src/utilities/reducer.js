@@ -21,6 +21,7 @@ export const initialState = {
   currentlyPlaying: null,
   playerState: false,
   tokenExpired: false,
+  audioRef: null,
 };
 const reducer = (state, action) => {
   switch (action.type) {
@@ -47,6 +48,9 @@ const reducer = (state, action) => {
     }
     case reducerCases.SET_TOKEN_EXPIRED: {
       return { ...state, tokenExpired: action.tokenExpired };
+    }
+    case reducerCases.SET_AUDIO_REF: {
+      return { ...state, audioRef: action.audioRef };
     }
     default:
       return state;

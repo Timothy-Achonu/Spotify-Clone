@@ -65,3 +65,6 @@
 .songAlbum {
   width: 160px;
 }
+.song audio{
+  display: none;
+}

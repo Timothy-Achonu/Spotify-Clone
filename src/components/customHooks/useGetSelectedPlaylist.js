@@ -18,6 +18,7 @@ export default function useGetSelectedPlaylist() {
             },
           }
         );
+        // console.log(response.data)
         const selectedPlaylist = {
           id: response.data.id,
           name: response.data.name,
@@ -35,6 +36,7 @@ export default function useGetSelectedPlaylist() {
               album: track.album.name,
               context_uri: track.album.uri,
               track_number: track.track_number,
+              audio: track.preview_url,
             };
           }),
         };

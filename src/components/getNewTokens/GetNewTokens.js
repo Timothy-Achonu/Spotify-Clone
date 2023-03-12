@@ -2,8 +2,8 @@ import React from 'react'
 
 export default function GetNewTokens() {
     function handleClick() {
-        window.localStorage.removeItem('token')
-        window.location.reload()
+      window.localStorage.removeItem('token')
+      window.location.href = "http://localhost:3000/";
     }
   return (
     <div>
