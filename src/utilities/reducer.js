@@ -22,7 +22,7 @@ export const initialState = {
   playerState: false,
   tokenExpired: false,
   audioRef: null,
-  redirectUrl : "",
+  redirectUrl : window.localStorage.getItem('redirectUrl'),
 };
 const reducer = (state, action) => {
   switch (action.type) {

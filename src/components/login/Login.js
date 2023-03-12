@@ -1,11 +1,9 @@
 import React, { useContext } from "react";
 import { TbOlympics } from "react-icons/tb";
 import styles from "./login.module.css";
-import { useStateProvider } from "../../utilities/StateProvider";
-import { reducerCases } from "../../utilities/Constants";
+
 
 export default function Login() {
-  const [, dispatch] = useStateProvider()
   console.log(window.location.href)
   function handleClick() {
     //a2804cd62b9942f1822cca36028762ed ==yours
@@ -13,7 +11,7 @@ export default function Login() {
     const clientId = "fe301ef56fd045d8a5e2f12ad62b81e9";
     // const redirectUrl = "http://localhost:3000/";
     const redirectUrl = window.location.href;
-    dispatch({type: reducerCases.SET_REDIRECT_URL, redirectUrl})
+    window.localStorage.setItem('redirectUrl', redirectUrl)
     const apiUrl = "https://accounts.spotify.com/authorize";
     const scope = [
       "user-read-email",
