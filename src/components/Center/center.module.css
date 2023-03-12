@@ -1,6 +1,7 @@
 .container {
   padding: 20px 40px;
   /* padding-left: 0; */
+
 }
 .header {
   display: flex;
@@ -35,7 +36,7 @@
   color: #9f9ea1;
 }
 .trendingWrapper {
-  margin-top: 30px;
+  margin-top: 10px;
 }
 .trendingWrapper > div:first-of-type {
   display: flex;
@@ -79,12 +80,12 @@
   margin-left: 8px;
 }
 .trendingImg {
-  margin-top: 20px;
-  height: 240px;
+  margin-top: 15px;
+  height: 200px;
   width: 100%;
   border-radius: 15px;
   background: linear-gradient(80deg, white 22.7%, rgba(256, 256, 256, 0.3)),
-    url("../assets/images/trendingImage.PNG") no-repeat center center / cover;
+    url("../../assets/images/trendingImage.PNG") no-repeat center center / cover;
   padding: 20px 35px;
   padding-top: 30px;
 }
@@ -93,8 +94,8 @@
   flex-direction: column;
 }
 .trendingImg > p > span {
-  font-weight: bold;
-  font-size: 1.8rem;
+  font-weight: 600;
+  font-size: 1.5rem;
 }
 .trendingImg > p > span:first-of-type {
   font-weight: 400;
@@ -105,11 +106,12 @@
 .trendingImg > div {
   display: flex;
   width: 100%;
-  margin-top: 30px;
+  margin-top: 15px;
 }
 .trendingImg > div > button {
-  width: 100px;
-  height: 40px;
+  /* width: 100px; */
+  padding: 0 25px;
+  height: 33px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -118,6 +120,8 @@
   background: black;
   border: 1px solid black;
   cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: 600;
 }
 .trendingImg > div > button:last-of-type {
   background: rgba(256, 256, 256, 0);

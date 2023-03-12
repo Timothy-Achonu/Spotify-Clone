@@ -1,13 +1,10 @@
-import React, { useEffect } from "react";
-import RightSidebar from "../rightSidebar/RightSidebar";
-import Center from "../Center/Center";
-import styles from "./mainApp.module.css";
-import axios from "axios";
-import { useStateProvider } from "../../utilities/StateProvider";
-import { reducerCases } from "../../utilities/Constants";
+import React, {useEffect} from 'react'
+import { useStateProvider } from '../../utilities/StateProvider';
+import { reducerCases } from '../../utilities/Constants';
+import axios from 'axios';
 
-export default function MainApp( ) {
-  const [initialState, dispatch] = useStateProvider();
+export default function useGetUserInfo() {
+    const [initialState, dispatch] = useStateProvider();
   const { token } = initialState;
   function throwError() {
     throw new Error("Token has expired");
@@ -38,20 +35,5 @@ export default function MainApp( ) {
     };
     getUserInfo()
   }, [dispatch, token]);
-
-  // const [reRenderMyPlaylist, setReRenderMyPlaylist] = useState('notReRendered')
-  //  const changeCurrentPlaylist = (selectedPlaylistId) => {
-  //   setReRenderMyPlaylist('reRendered')
-  //   dispatch({ type: reducerCases.SET_PLAYLIST_ID, selectedPlaylistId });
-  //   console.log(selectedPlaylistId)
-  // };
-  // console.log( "renderMyplaylist==> " ,reRenderMyPlaylist);
-  // console.log('In app')
-  // console.log(selectedPlaylist?.name)
-  return (
-    <div className={styles.container}>
-      <Center  />
-      <RightSidebar />
-    </div>
-  );
+  return initialState;
 }

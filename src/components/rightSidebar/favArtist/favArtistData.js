@@ -1,4 +1,4 @@
-import Ellipse from '../../assets/images/Ellipse.png'
+import Ellipse from '../../../assets/images/Ellipse.png'
 
 
 const favArtistData = [

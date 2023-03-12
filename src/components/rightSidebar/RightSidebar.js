@@ -4,7 +4,7 @@ import genresData from './genres/genresData'
 import Genre from './genres/Genre'
 import favArtistData from './favArtist/favArtistData'
 import FavArtist from './favArtist/FavArtist'
-import TheGirl from '../assets/images/TheSnippedGirl.PNG'
+import TheGirl from '../../assets/images/TheSnippedGirl.PNG'
 import {AiOutlinePlus} from 'react-icons/ai'
 
 export default function RightSidebar() {

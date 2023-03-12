@@ -2,6 +2,9 @@
     padding: 20px 15px;
     padding-top: 28px;
     width: 25vw;
+    height: 100vh;
+    max-height: 100vh;
+    overflow-y: scroll;
 }
 
 h2 {

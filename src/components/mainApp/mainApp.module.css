@@ -10,6 +10,7 @@
 .container > main {
     /* width: 75%; */
     width: 50vw;
-
-
+    position: relative;
+    height: 100vh;
+    max-height: 100vh;
 }

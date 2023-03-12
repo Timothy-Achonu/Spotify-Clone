@@ -5,17 +5,17 @@ import styles from "./leftSidebar.module.css";
 import NavLinks from "./navLinks/NavLinks";
 import navlinksData from "./navLinks/data";
 import { FiChevronRight } from "react-icons/fi";
-import ImgSrc from "../assets/images/Ellipse.png";
-import Playlists from "./Playlists";
+import Playlists from "./playlists/Playlists";
+import { useStateProvider } from "../../utilities/StateProvider";
 
 export default function LeftSidebar() {
-  console.log(navlinksData.length);
+ const [initialState, dispatch] = useStateProvider()
+ const {userInfo} = initialState;
   const Linkstyles = {
     color: "#9f9ea1",
     backgroundColor: "white",
     fontSize: "2rem",
   };
-
   return (
     <aside className={styles.container}>
       <div className={styles.topMenuIcon}>
@@ -40,7 +40,7 @@ export default function LeftSidebar() {
         {/* {navlinksData.slice(3, 6).map((item, idx) => {
           return <NavLinks icon={item.icon} text={item.text} key={idx} />;
         })} */}
-        <Playlists />
+        <Playlists  />
       </ul>
       {/* <div className={styles.listsHeading}> Your Collection </div>
       <ul>
@@ -48,12 +48,12 @@ export default function LeftSidebar() {
           return <NavLinks icon={item.icon} text={item.text} key={idx} />;
         })}
       </ul> */}
-      <div className={styles.ceptariWrapper}>
+      <div className={styles.userInfoWrapper}>
         <div className={styles.nameImgWrapper}>
           <figure>
-            <img src={ImgSrc} alt="lady face" />
+            <img src={userInfo?.imageSrc} alt="user" />
           </figure>
-          <span>Captari Tyas</span>
+          <span> {userInfo?.userName} </span>
         </div>
         <div>
           <FiChevronRight />

@@ -1,9 +1,9 @@
-import chill from '../../assets/images/chill.png'
-import guitar from '../../assets/images/guitar.png'
-import jazz from '../../assets/images/jazz.png'
-import piano from '../../assets/images/piano.png'
-import music from '../../assets/images/music.png'
-import star from '../../assets/images/star.png'
+import chill from '../../../assets/images/chill.png'
+import guitar from '../../../assets/images/guitar.png'
+import jazz from '../../../assets/images/jazz.png'
+import piano from '../../../assets/images/piano.png'
+import music from '../../../assets/images/music.png'
+import star from '../../../assets/images/star.png'
 
 
 

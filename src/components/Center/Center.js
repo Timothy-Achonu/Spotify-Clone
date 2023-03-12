@@ -4,8 +4,9 @@ import { BsArrowLeft } from "react-icons/bs";
 import { BsArrowRight } from "react-icons/bs";
 import { CiSearch } from "react-icons/ci";
 import { FiChevronRight } from "react-icons/fi";
-import fire from "../assets/images/fire.png";
+import fire from "../../assets/images/fire.png";
 import MyPlaylist from "./myPlaylist/MyPlaylist";
+import CurrentTrack from "./currentTrack/CurrentTrack";
 
 
 export default function Center() {
@@ -58,7 +59,7 @@ export default function Center() {
         </div>
       </div>
       {/* MY PLAYLIST */}
-      <MyPlaylist />
+      <MyPlaylist  />
     </main>
   );
 }
