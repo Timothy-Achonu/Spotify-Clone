@@ -5,7 +5,9 @@ import styles from "./login.module.css";
 export default function Login() {
   console.log(window.location.href)
   function handleClick() {
-    const clientId = "fe301ef56fd045d8a5e2f12ad62b81e9";
+    //a2804cd62b9942f1822cca36028762ed ==yours
+    //fe301ef56fd045d8a5e2f12ad62b81e9 ==mine
+    const clientId = "a2804cd62b9942f1822cca36028762ed";
     // const redirectUrl = "http://localhost:3000/";
     const redirectUrl = window.location.href;
     const apiUrl = "https://accounts.spotify.com/authorize";
