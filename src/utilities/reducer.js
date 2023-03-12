@@ -22,6 +22,7 @@ export const initialState = {
   playerState: false,
   tokenExpired: false,
   audioRef: null,
+  redirectUrl : "",
 };
 const reducer = (state, action) => {
   switch (action.type) {
@@ -51,6 +52,9 @@ const reducer = (state, action) => {
     }
     case reducerCases.SET_AUDIO_REF: {
       return { ...state, audioRef: action.audioRef };
+    }
+    case reducerCases.SET_REDIRECT_URL: {
+      return { ...state, redirectUrl: action.redirectUrl };
     }
     default:
       return state;

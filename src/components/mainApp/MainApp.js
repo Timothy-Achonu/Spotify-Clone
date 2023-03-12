@@ -8,7 +8,8 @@ import { reducerCases } from "../../utilities/Constants";
 
 export default function MainApp( ) {
   const [initialState, dispatch] = useStateProvider();
-  const { token } = initialState;
+  const { token, redirectUrl } = initialState;
+  console.log(redirectUrl)
   function throwError() {
     throw new Error("Token has expired");
   }
