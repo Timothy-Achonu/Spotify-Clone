@@ -1,16 +1,21 @@
-import React, { useContext } from "react";
+import React from "react";
 import { TbOlympics } from "react-icons/tb";
 import styles from "./login.module.css";
 
 
 export default function Login() {
-  console.log(window.location.href)
   function handleClick() {
     //a2804cd62b9942f1822cca36028762ed ==yours
     //fe301ef56fd045d8a5e2f12ad62b81e9 ==mine
     const clientId = "fe301ef56fd045d8a5e2f12ad62b81e9";
     // const redirectUrl = "http://localhost:3000/";
-    const redirectUrl = window.location.href;
+    let redirectUrl = ''
+    if(window.location.href.substring(window.location.href.length-1) === "#") {
+       redirectUrl = window.location.href.substring(0,window.location.href.length-1);
+    }
+    else{
+      redirectUrl = window.location.href
+    }
     window.localStorage.setItem('redirectUrl', redirectUrl)
     const apiUrl = "https://accounts.spotify.com/authorize";
     const scope = [

@@ -10,39 +10,137 @@ import {
 import { CgPlayTrackNext, CgPlayTrackPrev } from "react-icons/cg";
 import { FiRepeat } from "react-icons/fi";
 
-export default function PlayerControls({
-  isTrackPlaying,
-  audioRef,
-}) {
+export default function PlayerControls({ audioRef }) {
   const [initialState, dispatch] = useStateProvider();
-  const {  playerState, currentlyPlaying } = initialState;
-  // console.log(audioRef)
+  const { playerState, currentlyPlaying, currentAudioSrc, selectedPlaylist } =
+    initialState;
+  // const audioRef = useRef(null);
+  //
 
-  useEffect(() => {
-    const getPlayerState = () => {
+  const changeState = () => {
+    if (currentlyPlaying) {
       dispatch({
-          type: reducerCases.SET_PLAYER_STATE,
-          playerState: currentlyPlaying ? true : false,
-        });
-      
-    };
-    getPlayerState();
-  }, [ playerState, currentlyPlaying]);
-
-  const changeTrack =  () => {
-    if (isTrackPlaying) {
+        type: reducerCases.SET_PLAYER_STATE,
+        playerState: !playerState,
+      });
+    } else {
+      alert("To play music, click on a song");
     }
   };
-  const changeState = () => {
-    // playerState ? audioRef.current.pause() : audioRef.current.play()
-    audioRef.current.pause()
-    console.log(audioRef.current)
-    console.log(playerState)
-    if (isTrackPlaying) {
-      // dispatch({
-      //   type: reducerCases.SET_PLAYER_STATE,
-      //   playerState: !playerState,
-      // });
+
+  const changePlayerState = () => {
+    if (currentlyPlaying) {
+      if (playerState) {
+        audioRef.current.play();
+      }
+      if (!playerState) {
+        audioRef.current.pause();
+      }
+    }
+  };
+  useEffect(() => {
+    changePlayerState();
+  }, [playerState, currentAudioSrc]);
+
+  const changeTrack = (type) => {
+    
+    if (type === "next") {
+
+      if (currentlyPlaying.index + 1 > selectedPlaylist.tracks.length - 1) {
+        if(!selectedPlaylist.tracks[0].audio) {
+          alert(`The audio for ${selectedPlaylist.tracks[0].name} is not available`)
+          return
+        }
+        dispatch({
+          type: reducerCases.SET_CURRENT_AUDIO_SRC,
+          currentAudioSrc: selectedPlaylist.tracks[0].audio,
+        });
+        dispatch({
+          type: reducerCases.SET_PLAYING,
+          currentlyPlaying: selectedPlaylist.tracks[0],
+        });
+      } else {
+        if( !selectedPlaylist.tracks[currentlyPlaying.index + 1].audio) {
+          alert(`The audio for ${selectedPlaylist.tracks[currentlyPlaying.index + 1].name} is not available`)
+          return
+        }
+        dispatch({
+          type: reducerCases.SET_CURRENT_AUDIO_SRC,
+          currentAudioSrc:
+            selectedPlaylist.tracks[currentlyPlaying.index + 1].audio,
+        });
+        dispatch({
+          type: reducerCases.SET_PLAYING,
+          currentlyPlaying: selectedPlaylist.tracks[currentlyPlaying.index + 1],
+        });
+      }
+    }
+    if (type === "prev") {
+      if (currentlyPlaying.index - 1 < 0) {
+        if( !selectedPlaylist.tracks[selectedPlaylist.tracks.length - 1].audio) {
+          alert(`The audio for ${ selectedPlaylist.tracks[selectedPlaylist.tracks.length - 1].name} is not available`)
+          return
+        }
+        dispatch({
+          type: reducerCases.SET_CURRENT_AUDIO_SRC,
+          currentAudioSrc:
+            selectedPlaylist.tracks[selectedPlaylist.tracks.length - 1].audio,
+        });
+        dispatch({
+          type: reducerCases.SET_PLAYING,
+          currentlyPlaying:
+            selectedPlaylist.tracks[selectedPlaylist.tracks.length - 1],
+        });
+      } else {
+        if(!selectedPlaylist.tracks[currentlyPlaying.index - 1].audio) {
+          alert(`The audio for ${selectedPlaylist.tracks[currentlyPlaying.index - 1].name} is not available`)
+          return
+        }
+        dispatch({
+          type: reducerCases.SET_CURRENT_AUDIO_SRC,
+          currentAudioSrc:
+            selectedPlaylist.tracks[currentlyPlaying.index - 1].audio,
+        });
+        dispatch({
+          type: reducerCases.SET_PLAYING,
+          currentlyPlaying: selectedPlaylist.tracks[currentlyPlaying.index - 1],
+        });
+      }
+    }
+  };
+  //HANDLE AUDIO ENDED.
+  const handleEnded = () => {
+    if (currentlyPlaying.index + 1 > selectedPlaylist.tracks.length - 1) {
+      let track = selectedPlaylist.tracks[0];
+      if (selectedPlaylist.tracks[0].audio) {
+        dispatch({
+          type: reducerCases.SET_CURRENT_AUDIO_SRC,
+          currentAudioSrc: selectedPlaylist.tracks[0].audio,
+        });
+        dispatch({
+          type: reducerCases.SET_PLAYING,
+          currentlyPlaying: selectedPlaylist.tracks[0],
+        });
+      } else {
+        alert(`The audio of ${track.name} is not available`);
+        changeState()
+      }
+    } else {
+      let track = selectedPlaylist.tracks[currentlyPlaying.index + 1]
+      if (selectedPlaylist.tracks[currentlyPlaying.index + 1].audio) {
+        dispatch({
+          type: reducerCases.SET_CURRENT_AUDIO_SRC,
+          currentAudioSrc:
+            selectedPlaylist.tracks[currentlyPlaying.index + 1].audio,
+        });
+        dispatch({
+          type: reducerCases.SET_PLAYING,
+          currentlyPlaying: selectedPlaylist.tracks[currentlyPlaying.index + 1],
+        });
+      } else {
+        alert(`The audio of ${track.name} is not available`);
+        changeState()
+      }
     }
   };
 
@@ -53,7 +151,7 @@ export default function PlayerControls({
           <BsShuffle />
         </div>
         <div className={styles.prev}>
-          <CgPlayTrackPrev onClick={() => changeTrack("previous")} />
+          <CgPlayTrackPrev onClick={() => changeTrack("prev")} />
         </div>
         <div className={styles.play}>
           {playerState ? (
@@ -69,6 +167,7 @@ export default function PlayerControls({
           <FiRepeat />
         </div>
       </div>
+      <audio src={currentAudioSrc} ref={audioRef} onEnded={handleEnded}></audio>
     </div>
   );
 }

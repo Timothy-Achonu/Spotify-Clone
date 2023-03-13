@@ -8,8 +8,7 @@ import { reducerCases } from "../../utilities/Constants";
 
 export default function MainApp( ) {
   const [initialState, dispatch] = useStateProvider();
-  const { token, redirectUrl } = initialState;
-  console.log(redirectUrl)
+  const { token } = initialState;
   function throwError() {
     throw new Error("Token has expired");
   }
@@ -40,15 +39,6 @@ export default function MainApp( ) {
     getUserInfo()
   }, [dispatch, token]);
 
-  // const [reRenderMyPlaylist, setReRenderMyPlaylist] = useState('notReRendered')
-  //  const changeCurrentPlaylist = (selectedPlaylistId) => {
-  //   setReRenderMyPlaylist('reRendered')
-  //   dispatch({ type: reducerCases.SET_PLAYLIST_ID, selectedPlaylistId });
-  //   console.log(selectedPlaylistId)
-  // };
-  // console.log( "renderMyplaylist==> " ,reRenderMyPlaylist);
-  // console.log('In app')
-  // console.log(selectedPlaylist?.name)
   return (
     <div className={styles.container}>
       <Center  />

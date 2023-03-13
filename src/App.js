@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState } from "react";
+import { useEffect } from "react";
 import "./App.css";
 import Login from "./components/login/Login";
 import MainApp from "./components/mainApp/MainApp";
@@ -8,6 +8,7 @@ import { useStateProvider } from "./utilities/StateProvider";
 import { reducerCases } from "./utilities/Constants";
 import Playlist from "./components/Center/playlist/Playlist";
 import GetNewTokens from "./components/getNewTokens/GetNewTokens";
+import CurrentTrack from "./components/Center/currentTrack/CurrentTrack";
 function App() {
   /*
   The leftSidebar can be actual links. That would mean that the
@@ -79,6 +80,7 @@ useEffect(() => {
         { showApp() ? (
         <>
           <LeftSidebar />
+          <CurrentTrack/>
           <Routes>
             <Route path="/" element={ <MainApp />} />
             <Route path="/playlist/:id" element={<Playlist />} />

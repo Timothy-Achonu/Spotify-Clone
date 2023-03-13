@@ -1,45 +1,20 @@
-import React, { useEffect } from "react";
+import  { useEffect } from "react";
 import styles from "./currentTrack.module.css";
 import axios from "axios";
 import { useStateProvider } from "../../../utilities/StateProvider";
-import { reducerCases } from "../../../utilities/Constants";
 import PlayerControls from "./playerControls/PlayerControls";
 // import { MdFavorite } from "react-icons/md";
 import { MdFavoriteBorder } from "react-icons/md";
 import Volume from "./volume/Volume";
+import { useRef } from "react";
 
-export default function CurrentTrack({audioRef}) {
-  const [initialState, dispatch] = useStateProvider();
-  const { token, currentlyPlaying } = initialState;
 
-  const getCurrentPlayingTrack = async () => {
-    const response = await axios.get(
-      "https://api.spotify.com/v1/me/player/currently-playing",
-      {
-        headers: {
-          Authorization: "Bearer " + token,
-          "Content-Type": "application/json",
-        },
-      }
-    );
-    if (response.data !== "") {
-      const { item } = response.data;
-      const currentlyPlaying = {
-        id: item.id,
-        name: item.name,
-        artists: item.artists.map((artist) => artist.name),
-        imageSrc: item.album.images[2].url,
-      };
-      dispatch({ type: reducerCases.SET_PLAYING, currentlyPlaying });
-    } else {
-      dispatch({ type: reducerCases.SET_PLAYING, currentlyPlaying: null });
-    }
-  };
+export default function CurrentTrack() {
+  const [initialState] = useStateProvider();
+  const {  currentlyPlaying } = initialState;
+  const audioRef = useRef(null);
 
-  useEffect(() => {
-    // getCurrentPlayingTrack();
-  }, [dispatch, token]);
-
+  
   return (
     <div>
       {currentlyPlaying ? (
@@ -55,13 +30,10 @@ export default function CurrentTrack({audioRef}) {
               </figure>
             </div>
             <PlayerControls
-              getCurrentPlayingTrack={getCurrentPlayingTrack}
               audioRef={audioRef}
-              isTrackPlaying={true}
             />
-            <Volume isTrackPlaying={true} />
+            <Volume audioRef={audioRef} />
           </div>
-          <div>duration</div>
         </div>
       ) : (
         <div className={styles.currentlyPlaying}>
@@ -76,13 +48,10 @@ export default function CurrentTrack({audioRef}) {
               </figure>
             </div>
             <PlayerControls
-              getCurrentPlayingTrack={getCurrentPlayingTrack}
               audioRef={audioRef}
-              isTrackPlaying={false}
             />
-            <Volume isTrackPlaying={false} />
+            <Volume  />
           </div>
-          <div> No duration</div>
         </div>
       )}
     </div>

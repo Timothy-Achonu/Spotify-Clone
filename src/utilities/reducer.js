@@ -21,7 +21,7 @@ export const initialState = {
   currentlyPlaying: null,
   playerState: false,
   tokenExpired: false,
-  audioRef: null,
+  currentAudioSrc: null,
   redirectUrl : window.localStorage.getItem('redirectUrl'),
 };
 const reducer = (state, action) => {
@@ -50,8 +50,8 @@ const reducer = (state, action) => {
     case reducerCases.SET_TOKEN_EXPIRED: {
       return { ...state, tokenExpired: action.tokenExpired };
     }
-    case reducerCases.SET_AUDIO_REF: {
-      return { ...state, audioRef: action.audioRef };
+    case reducerCases.SET_CURRENT_AUDIO_SRC: {
+      return { ...state, currentAudioSrc: action.currentAudioSrc };
     }
     case reducerCases.SET_REDIRECT_URL: {
       return { ...state, redirectUrl: action.redirectUrl };

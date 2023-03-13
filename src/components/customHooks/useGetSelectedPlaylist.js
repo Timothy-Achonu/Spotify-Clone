@@ -26,8 +26,9 @@ export default function useGetSelectedPlaylist() {
             ? ""
             : response.data.description,
           imageSrc: response.data.images[0].url,
-          tracks: response.data.tracks.items.map(({ track }) => {
+          tracks: response.data.tracks.items.map(({ track }, index) => {
             return {
+              index: index,
               id: track.id,
               name: track.name,
               artists: track.artists.map((artist) => artist.name),
