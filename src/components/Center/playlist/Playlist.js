@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import styles from "./playlist.module.css";
 import { useStateProvider } from "../../../utilities/StateProvider";
 import Song from "../song/Song";
@@ -14,7 +14,7 @@ export default function Playlist() {
         <div className={styles.playlist}>
           <div className={styles.imageSongNameWrapper}>
             <figure>
-              <img src={selectedPlaylist.imageSrc} />
+              <img src={selectedPlaylist.imageSrc} alt="Playlist"/>
             </figure>
             <div>
               <h2> {selectedPlaylist.name} </h2>

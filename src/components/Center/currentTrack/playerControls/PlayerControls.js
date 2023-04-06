@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useCallback, useEffect } from "react";
 import styles from "./playerControls.module.css";
 import { useStateProvider } from "../../../../utilities/StateProvider";
 import { reducerCases } from "../../../../utilities/Constants";

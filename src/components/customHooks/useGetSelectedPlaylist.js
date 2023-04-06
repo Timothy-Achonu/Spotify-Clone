@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import {useEffect} from 'react'
 import axios from 'axios';
 import { useStateProvider } from '../../utilities/StateProvider';
 import { reducerCases } from '../../utilities/Constants';

@@ -14,3 +14,15 @@
 /* div::-webkit-scrollbar {
   width: 1em;
 } */
+.playlistsContainer::-webkit-scrollbar {
+  width: 0.7em;
+}
+ 
+.playlistsContainer::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.8);
+}
+.playlistsContainer::-webkit-scrollbar-thumb {
+  background-color: darkgrey;
+  outline: 1px solid slategrey;
+  /* border-radius: 20px; */
+}

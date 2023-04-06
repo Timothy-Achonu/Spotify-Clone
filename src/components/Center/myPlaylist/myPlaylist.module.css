@@ -21,6 +21,17 @@
     overflow-y: hidden;
     overflow-y: scroll;
   }
+  .myPlaylistsWrapper .tableWrapper::-webkit-scrollbar {
+    width: 0.7em;
+  }
+  .myPlaylistsWrapper .tableWrapper::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.8);
+  }
+  .myPlaylistsWrapper .tableWrapper::-webkit-scrollbar-thumb {
+    background-color: darkgrey;
+    outline: 1px solid slategrey;
+    /* border-radius: 20px; */
+  }
   
   .myPlaylistsWrapper  .table {
     width: fit-content;

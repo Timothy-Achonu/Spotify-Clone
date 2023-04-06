@@ -24,7 +24,10 @@ export default function Playlists() {
         }
       );
       const { items } = response.data;
-      const playlists = items.map(({ name, id }) => {
+      const playlists = items.map(({ name, id }, index) => {
+        if(index === items.length - 1) {
+          dispatch({ type: reducerCases.SET_PLAYLIST_ID, selectedPlaylistId: id });
+        }
         return { name, id };
       });
       dispatch({ type: reducerCases.SET_PLAYLISTS, playlists });

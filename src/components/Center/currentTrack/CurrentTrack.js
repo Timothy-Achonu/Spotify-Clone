@@ -1,6 +1,4 @@
-import  { useEffect } from "react";
 import styles from "./currentTrack.module.css";
-import axios from "axios";
 import { useStateProvider } from "../../../utilities/StateProvider";
 import PlayerControls from "./playerControls/PlayerControls";
 // import { MdFavorite } from "react-icons/md";
