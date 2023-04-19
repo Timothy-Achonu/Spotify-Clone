@@ -1,0 +1,90 @@
+.container {
+  width: 100%;
+  padding: 20px 0px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  width: 50vw;
+  align-items: center;
+  /* margin-left: 40px; */
+  margin: 0 40px;
+}
+
+.header > div:first-of-type {
+  display: flex;
+  justify-content: space-between;
+  width: 10%;
+}
+.header > div:last-of-type {
+  width: 80%;
+}
+
+.displayTracks {
+  display: flex;
+  margin: 0 auto;
+  margin-top: 20px;
+  justify-content: space-between;
+  padding: 0 20px;
+  /* background-color: red; */
+}
+.displayTracks > div {
+  background-color: inherit;
+}
+.displayTracks > div:first-of-type {
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(0, 0, 0, 0.1);
+  justify-content: center;
+  color: black;
+  width: 40%;
+  padding: 20px;
+  transition: all 500ms linear;
+}
+.displayTracks > div:first-of-type:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  cursor: pointer;
+}
+.displayTracks > div:first-of-type > img {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 20px;
+}
+.displayTracks > div:last-of-type {
+  display: flex;
+  flex-direction: column;
+  color: black;
+  max-height: 300px;
+  overflow-y: scroll;
+  width: 58%;
+}
+.displayTracks > div:last-of-type > div {
+  display: flex;
+  margin-top: 20px;
+}
+.displayTracks > div:last-of-type > div:hover {
+  background-color: white;
+}
+.displayTracks > div:last-of-type  img {
+  width: 50px;
+  height: 50px;
+}
+.displayTracks > div:last-of-type > div > div {
+      display: flex;
+      flex-direction: column;
+}
+.displayTracks > div:last-of-type > div > .trackNameArtistWrapper {
+  margin-left: 12px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+/* .displayTracks > div:last-of-type > div > 
+.trackNameArtistWrapper > */
+.displayTracks > div:last-of-type > div > .duration {
+    margin-left: auto;
+    margin-right: 12px;
+}

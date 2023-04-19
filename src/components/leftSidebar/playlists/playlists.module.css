@@ -1,5 +1,4 @@
 .playlistsContainer {
-    height: 40vh;
     max-height: 37vh;
     overflow-y: scroll;
 }
@@ -19,10 +18,13 @@
 }
  
 .playlistsContainer::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.8);
+  /* box-shadow: inset 0 0 6px rgba(0, 0, 0, 1); */
+  background-color: #f4f5fe;
+
 }
 .playlistsContainer::-webkit-scrollbar-thumb {
-  background-color: darkgrey;
-  outline: 1px solid slategrey;
+  background-color: #f4f5fe;
+  background-color: black;
+  outline: 1px solid black;
   /* border-radius: 20px; */
 }

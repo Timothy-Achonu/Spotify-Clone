@@ -1,15 +1,13 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./center.module.css";
 import { BsArrowLeft } from "react-icons/bs";
 import { BsArrowRight } from "react-icons/bs";
-import { CiSearch } from "react-icons/ci";
 import { FiChevronRight } from "react-icons/fi";
 import fire from "../../assets/images/fire.png";
 import MyPlaylist from "./myPlaylist/MyPlaylist";
-import CurrentTrack from "./currentTrack/CurrentTrack";
-
-
+import Search from "./search/Search";
 export default function Center() {
+  
   return (
     <main className={styles.container}>
       <div className={styles.header}>
@@ -17,10 +15,7 @@ export default function Center() {
           <BsArrowLeft />
           <BsArrowRight />
         </div>
-        <div className={styles.inputWrapper}>
-          <CiSearch />
-          <input type="text" placeholder="Search for artists, songs and..." />
-        </div>
+        <Search />
       </div>
 
       <div className={styles.trendingWrapper}>
@@ -59,7 +54,7 @@ export default function Center() {
         </div>
       </div>
       {/* MY PLAYLIST */}
-      <MyPlaylist  />
+      <MyPlaylist />
     </main>
   );
 }

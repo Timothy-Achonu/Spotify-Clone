@@ -31,7 +31,7 @@ export default function useGetSelectedPlaylist() {
               index: index,
               id: track.id,
               name: track.name,
-              artists: track.artists.map((artist) => artist.name),
+              artists: track.artists.map((artist) => artist.name).join(" "),
               image: track.album.images[2].url,
               duration: msTominutes(track.duration_ms),
               album: track.album.name,

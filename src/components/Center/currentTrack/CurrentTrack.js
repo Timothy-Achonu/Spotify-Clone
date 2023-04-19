@@ -21,7 +21,7 @@ export default function CurrentTrack() {
             <div className={styles.songArtistsWrapper}>
               <div>
                 <span> {currentlyPlaying.name} </span>
-                <span> {currentlyPlaying.artists.join(" ")} </span>
+                <span> {currentlyPlaying.artists} </span>
               </div>
               <figure>
                 <MdFavoriteBorder />

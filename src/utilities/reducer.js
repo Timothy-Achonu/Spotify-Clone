@@ -23,6 +23,14 @@ export const initialState = {
   tokenExpired: false,
   currentAudioSrc: null,
   redirectUrl : window.localStorage.getItem('redirectUrl'),
+  searchKey: "",
+  searchResults: {
+    albums : [],
+    tracks: [],
+    playlists : [],
+    podcasts : [],
+    shows: [],
+  },
 };
 const reducer = (state, action) => {
   switch (action.type) {
@@ -55,6 +63,12 @@ const reducer = (state, action) => {
     }
     case reducerCases.SET_REDIRECT_URL: {
       return { ...state, redirectUrl: action.redirectUrl };
+    }
+    case reducerCases.SET_SEARCH_KEY: {
+      return { ...state, searchKey: action.searchKey };
+    }
+    case reducerCases.SET_SEARCH_RESULTS: {
+      return { ...state, searchResults: action.searchResults };
     }
     default:
       return state;
