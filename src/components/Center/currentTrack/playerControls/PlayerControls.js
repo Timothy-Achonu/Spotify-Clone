@@ -143,7 +143,11 @@ export default function PlayerControls({ audioRef }) {
       }
     }
   };
-
+  //setting volume to 50% on first page loading
+  useEffect(() => {
+    // console.log('In volume useEffect', audioRef.current.volume);
+    audioRef.current.volume = 0.5;
+  },[])
   return (
     <div className={styles.playerControls}>
       <div>
@@ -167,7 +171,7 @@ export default function PlayerControls({ audioRef }) {
           <FiRepeat />
         </div>
       </div>
-      <audio src={currentAudioSrc} ref={audioRef} onEnded={handleEnded}></audio>
+      <audio src={currentAudioSrc} ref={audioRef} onEnded={handleEnded} ></audio>
     </div>
   );
 }

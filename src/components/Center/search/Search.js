@@ -24,7 +24,7 @@ export default function Search() {
         // type: ["track", "artist", "album", "playlist"],
       },
     });
-    console.log(data);
+    // console.log(data);
     if (type === "track") {
       const response = data.tracks.items.map((track, index) => {
         return {

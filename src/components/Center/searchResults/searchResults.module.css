@@ -63,6 +63,7 @@
 .displayTracks > div:last-of-type > div {
   display: flex;
   margin-top: 20px;
+  cursor: pointer;
 }
 .displayTracks > div:last-of-type > div:hover {
   background-color: white;

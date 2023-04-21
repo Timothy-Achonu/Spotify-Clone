@@ -20,7 +20,6 @@ export default function SearchResults() {
     }
   }
   function setAudioSrc(track) {
-    console.log( 'In setAudio', track);
     if (track.audio) {
       dispatch({
         type: reducerCases.SET_CURRENT_AUDIO_SRC,

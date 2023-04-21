@@ -31,6 +31,7 @@ export const initialState = {
     podcasts : [],
     shows: [],
   },
+  favArtists: null
 };
 const reducer = (state, action) => {
   switch (action.type) {
@@ -69,6 +70,9 @@ const reducer = (state, action) => {
     }
     case reducerCases.SET_SEARCH_RESULTS: {
       return { ...state, searchResults: action.searchResults };
+    }
+    case reducerCases.SET_FAV_ARTISTS : {
+      return { ...state, favArtists: action.favArtists };
     }
     default:
       return state;
